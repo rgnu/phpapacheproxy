@@ -1,0 +1,10 @@
+<?php
+
+$config = array(
+    '/test' => array(
+        'from' => 'http://example.com', 
+        'to'   => 'http://localhost:8080'
+    )
+);
+
+return $config;

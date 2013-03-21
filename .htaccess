@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+SetEnvIf Content-Type ^(multipart/form-data)(.*) MULTIPART_CTYPE=$1$2
+RequestHeader set Content-Type application/x-httpd-php env=MULTIPART_CTYPE
+RequestHeader set X-Real-Content-Type %{MULTIPART_CTYPE}e env=MULTIPART_CTYPE
+
+ErrorDocument 500 "<h2>Application error</h2>"
+
+
